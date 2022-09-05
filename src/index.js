@@ -1,23 +1,26 @@
-(function component() {
+import home from './home.js'
+import menu from './menu.js'
+import contact from './contact.js'
+
+(() => {
+  const content = document.getElementById('content')
+  //on load
+  content.appendChild(home())
+
   const navHome = document.querySelector('.navHome')
   const navMenu = document.querySelector('.navMenu')
   const navContact = document.querySelector('.navContact')
-  const home = document.querySelector('.home')
-  const menu = document.querySelector('.menu')
-  const contact = document.querySelector('.contact')
+  
   navHome.addEventListener('click', () => {
-    menu.style.display = 'none'
-    contact.style.display = 'none'
-    home.style.display = 'flex'
+    content.innerHTML = ''
+    content.appendChild(home())
   })
   navMenu.addEventListener('click', () => {
-    menu.style.display = 'flex'
-    contact.style.display = 'none'
-    home.style.display = 'none'
+    content.innerHTML = ''
+    content.appendChild(menu())
   })
   navContact.addEventListener('click', () => {
-    menu.style.display = 'none'
-    contact.style.display = 'flex'
-    home.style.display = 'none'
+    content.innerHTML = ''
+    content.appendChild(contact())
   })
 })()
